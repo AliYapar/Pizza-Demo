@@ -23,6 +23,14 @@ var wizard = {
 	cls: 'selected',
 	typeCls: 'detail',
 	clicklable: true,
+	disabled: function( ID ){ 
+		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		customizeBtn.addClass('disabled');
+	},
+	enabled: function( ID ){
+		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		customizeBtn.removeClass('disabled');
+	},
 	init: function(){
 		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
 		if( accordionBtn.length > 0 )
@@ -53,8 +61,10 @@ var wizard = {
 				backBtn.html( txt );
 				$('.' + _t.firstPage ).removeClass( _t.firstPage );
 				
-				if( !$(_t.customizeBtn, prts).eq( 0 ).parent('li').hasClass( _t.cls ) )
+				if( !$(_t.customizeBtn, prts).eq( 0 ).parent('li').hasClass( _t.cls ) ){
 					$(_t.customizeBtn, prts).eq( 0 ).click();
+				}
+				_t.disabled( prts );	
 			});
 		
 		if( typeSelectionBackBtn.length > 0 )
@@ -67,9 +77,10 @@ var wizard = {
 		
 		if( customizeBtn.length > 0 )
 			customizeBtn.bind('click', function(){
+				var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
+				if( _this.hasClass('disabled') ) return false;	
 				if( _t.clicklable ){
 					_t.clicklable = false;
-					var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
 					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
 						bsib.slideUp( _t.speed, _t.easing );
@@ -92,7 +103,7 @@ var wizard = {
 		
 		if( singleSelectBtn.length > 0 )
 			singleSelectBtn.bind('click', function(){
-				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li');
+				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li'), prts = prt.parents( _t.prts );	
 				if( prt.hasClass( _t.cls ) ){
 					sib.removeClass( _t.cls );
 					prt.removeClass( _t.cls );
@@ -100,7 +111,13 @@ var wizard = {
 					sib.removeClass( _t.cls );
 					prt.addClass( _t.cls );
 				}
-			}); 	
+				if( _this.hasClass('required') ){ 
+					_t.enabled( prts );
+					var e = _this.parents('.sub').parent('li').next('li').find('> a');
+					if( e.length > 0 )
+						e.click();
+				}
+			});
 					
 	}
 	
