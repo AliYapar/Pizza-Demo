@@ -23,12 +23,27 @@ var wizard = {
 	cls: 'selected',
 	typeCls: 'detail',
 	clicklable: true,
+	disabled: function( ID ){ 
+		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		ID.removeClass('success');
+		customizeBtn.addClass('disabled');
+	},
+	enabled: function( ID ){
+		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		ID.addClass('success');
+		customizeBtn.removeClass('disabled');
+	},
+	reset: function( ID ){
+		var _t = this;
+		$(_t.singleSelectBtn, ID).parent('li').removeClass( _t.cls ).siblings('li').removeClass( _t.cls );
+		$(_t.multiSelectBtn, ID).parent('li').removeClass( _t.cls ).eq( 0 ).addClass( _t.cls );
+	},
 	init: function(){
 		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
 				if( _t.clicklable ){
-					_t.clicklable = false;
+					//_t.clicklable = false;
 					var _this = $( this ), prt = _this.parents( _t.prts ), sib = prt.siblings( _t.prts ), b = $('.body', prt), bsib = $('.body', sib);
 					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
@@ -53,8 +68,11 @@ var wizard = {
 				backBtn.html( txt );
 				$('.' + _t.firstPage ).removeClass( _t.firstPage );
 				
-				if( !$(_t.customizeBtn, prts).eq( 0 ).parent('li').hasClass( _t.cls ) )
+				_t.reset( prts );
+				if( !$(_t.customizeBtn, prts).eq( 0 ).parent('li').hasClass( _t.cls ) ){
 					$(_t.customizeBtn, prts).eq( 0 ).click();
+				}
+				_t.disabled( prts );	
 			});
 		
 		if( typeSelectionBackBtn.length > 0 )
@@ -67,9 +85,10 @@ var wizard = {
 		
 		if( customizeBtn.length > 0 )
 			customizeBtn.bind('click', function(){
+				var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
+				if( _this.hasClass('disabled') ) return false;	
 				if( _t.clicklable ){
-					_t.clicklable = false;
-					var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
+					//_t.clicklable = false;
 					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
 						bsib.slideUp( _t.speed, _t.easing );
@@ -92,15 +111,31 @@ var wizard = {
 		
 		if( singleSelectBtn.length > 0 )
 			singleSelectBtn.bind('click', function(){
-				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li');
-				if( prt.hasClass( _t.cls ) ){
-					sib.removeClass( _t.cls );
-					prt.removeClass( _t.cls );
-				}else{
+				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li'), prts = prt.parents( _t.prts );	
+				
+				
+				if( _this.hasClass('required') ){ 
+					
 					sib.removeClass( _t.cls );
 					prt.addClass( _t.cls );
+					
+					_t.enabled( prts );
+					var e = _this.parents('.sub').parent('li').next('li').find('> a');
+					if( e.length > 0 )
+						e.click();
+				}else{
+					
+					if( prt.hasClass( _t.cls ) ){
+						sib.removeClass( _t.cls );
+						prt.removeClass( _t.cls );
+					}else{
+						sib.removeClass( _t.cls );
+						prt.addClass( _t.cls );
+					}
+					
+					
 				}
-			}); 	
+			});
 					
 	}
 	
