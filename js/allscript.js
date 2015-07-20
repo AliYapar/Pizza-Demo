@@ -25,10 +25,12 @@ var wizard = {
 	clicklable: true,
 	disabled: function( ID ){ 
 		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		ID.removeClass('success');
 		customizeBtn.addClass('disabled');
 	},
 	enabled: function( ID ){
 		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
+		ID.addClass('success');
 		customizeBtn.removeClass('disabled');
 	},
 	init: function(){
@@ -36,7 +38,7 @@ var wizard = {
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
 				if( _t.clicklable ){
-					_t.clicklable = false;
+					//_t.clicklable = false;
 					var _this = $( this ), prt = _this.parents( _t.prts ), sib = prt.siblings( _t.prts ), b = $('.body', prt), bsib = $('.body', sib);
 					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
@@ -80,7 +82,7 @@ var wizard = {
 				var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
 				if( _this.hasClass('disabled') ) return false;	
 				if( _t.clicklable ){
-					_t.clicklable = false;
+					//_t.clicklable = false;
 					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
 						bsib.slideUp( _t.speed, _t.easing );
@@ -111,6 +113,7 @@ var wizard = {
 					sib.removeClass( _t.cls );
 					prt.addClass( _t.cls );
 				}
+				
 				if( _this.hasClass('required') ){ 
 					_t.enabled( prts );
 					var e = _this.parents('.sub').parent('li').next('li').find('> a');
