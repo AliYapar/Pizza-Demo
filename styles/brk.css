@@ -1,0 +1,4 @@
+.popupSelect.left{min-height:650px;}
+.popupWrapper .row .body{display:none;}
+.popupWrapper .row.firstItem .body .customize, .popupWrapper .row.secondItem .body .customize, .popupWrapper .row.firstItem.detail .body .type, .popupWrapper .row.secondItem.detail .body .type, .popupWrapper .row .typeSelectionBtn small, .popupWrapper .row.detail .typeSelectionBtn span{display:none;}
+.popupWrapper .row.firstItem.detail .body .customize, .popupWrapper .row.secondItem.detail .body .customize, .popupWrapper .row.detail .typeSelectionBtn small{display:block;}

@@ -11,30 +11,50 @@ b,c,d){return c-jQuery.easing.easeOutBounce(x,d-t,0,c,d)+b},easeOutBounce:functi
 
 var wizard = {
 	accordionBtn: '.accordionBtn',
+	typeSelectionBtn: '.type ul li a',
+	typeSelectionBackBtn: '.typeSelectionBtn',
 	prts: '.row',
 	easing: 'easeInOutExpo',
 	speed: 333,
+	cls: 'selected',
+	typeCls: 'detail',
 	clicklable: true,
 	init: function(){
-		var _t = this, accordionBtn = $( _t.accordionBtn );
+		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn );
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
 				if( _t.clicklable ){
 					_t.clicklable = false;
 					var _this = $( this ), prt = _this.parents( _t.prts ), sib = prt.siblings( _t.prts ), b = $('.body', prt), bsib = $('.body', sib);
-					if( prt.hasClass('selected') ){
+					if( prt.hasClass( _t.cls ) ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
 						bsib.slideUp( _t.speed, _t.easing );
-						prt.removeClass('selected');
-						sib.removeClass('selected');
+						prt.removeClass( _t.cls );
+						sib.removeClass( _t.cls );
 					}else{
 						b.slideDown( _t.speed, _t.easing, function(){ _t.clicklable = true; });
 						bsib.slideUp( _t.speed, _t.easing );
-						prt.addClass('selected');
-						sib.removeClass('selected');
+						prt.addClass( _t.cls );
+						sib.removeClass( _t.cls );
 					}
 				}
 			});
+		
+		if( typeSelectionBtn.length > 0 )
+			typeSelectionBtn.bind('click', function(){
+				var _this = $( this ), txt = $('span', _this).text(), prt = _this.parent('li'), sib = prt.siblings('li'), prts = prt.parents( _t.prts ), backBtn = $(_t.typeSelectionBackBtn + ' small', prts);
+				sib.removeClass( _t.cls );
+				prt.addClass( _t.cls );
+				prts.addClass( _t.typeCls );
+				backBtn.html( txt );
+			});
+		
+		if( typeSelectionBackBtn.length > 0 )
+			typeSelectionBackBtn.bind('click', function(){
+				var _this = $( this ), prts = _this.parents( _t.prts );
+				prts.removeClass( _t.typeCls );
+				$(_t.typeSelectionBtn, prts).parents('li').removeClass( _t.cls );
+			});		
 	}
 	
 };
