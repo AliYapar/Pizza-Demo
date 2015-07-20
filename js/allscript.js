@@ -142,3 +142,9 @@ var wizard = {
 };
 
 wizard.init();
+
+var bdy = $('body'), popup = $('.popupSelect');
+$( window ).resize(function(){
+	if( bdy.hasClass('alt') )
+		popup.css('margin-bottom', window.innerHeight - 650);
+});
