@@ -1,0 +1,90 @@
+/*/////////////////////////////////////////      FONT      /////////////////////////////////////////*/
+
+@font-face {
+    font-family: 'usc-medium';
+    src: url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.eot');
+    src: url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.eot?#iefix') format('embedded-opentype'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.woff2') format('woff2'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.woff') format('woff'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.ttf') format('truetype'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Medium_gdi.svg#UnitedSansSemiCond-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'usc-bold';
+    src: url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.eot');
+    src: url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.woff2') format('woff2'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.woff') format('woff'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.ttf') format('truetype'),
+         url('../styles/fonts/usc/UnitedSansSemiCond-Bold_gdi.svg#UnitedSansSemiCond-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*/////////////////////////////////////////      GENEL      /////////////////////////////////////////*/
+
+* {
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
+	font-family:'usc-medium';
+	font-size:13px; color:#000; font-weight:400; font-style:normal;
+	text-align:left; 
+	line-height:1;
+	margin:0;
+	padding:0;
+	border:none;
+	outline:none;
+	vertical-align: baseline; 
+	text-decoration:none;
+	list-style:none;
+}
+
+/*/////////////////////////////////////////      GENERAL      /////////////////////////////////////////*/
+
+body {background:#1b1b1a;}
+.right {float:right;}
+.left {float:left;}
+
+/*/////////////////////////////////////////      ICON      /////////////////////////////////////////*/
+
+.icon1 {background: url(../images/sprite.png) no-repeat 0 0;}
+
+/*/////////////////////////////////////////      PIZZAHUT CSS      /////////////////////////////////////////*/
+
+.bodyWrapper {text-align:center; overflow: hidden;}
+.bodyWrapper .pageWrapper {display:inline-block; max-width: 1100px; left: -200px; right: 200px; position:relative /*margin-left: -200px; margin-right: 200px;*/}
+.bodyWrapper .webTemplate {}
+
+/*/////////////////////////////////////////      POPUP      /////////////////////////////////////////*/
+
+.detailPopup {/*position:absolute; left:0; right:0; top:180px; z-index:2; display: inline-block; margin: 0 auto; width: 100%; max-width: 1140px; padding: 0 20px;*/}
+/*.popupSelect {width:100%; max-width:700px;}*/
+/*.popupOrder img {float: right; clear: both;}*/
+.popupBasketBtn a {width:400px; height:70px; display:inline-block; background: url(../images/add-basket.jpg) no-repeat 0 0; }
+
+.popupWrapper {/*width:100%; position:relative;*/ background: url(../images/popup-bg.jpg) no-repeat 0 0; /*display: inline-block;*/ z-index:2;}
+.popupClose {position:absolute; right: -15px; top: -15px; z-index:2;}
+.popupClose a {padding:10px; border-radius:100%; background:#ffbf00; display:block;}
+.popupClose i {background-position: 0px -28px; width: 13px;  height: 13px; display:block;}
+
+
+/**/
+
+body.alt .detailPopup { position: display: block;  position: relative; width: 1100px;   margin: 0 auto; top: 180px;}
+.detailPopup li { border-bottom: 1px solid #aaa; padding: 25px 0;}
+
+
+.popupWrapper {display: none;}
+
+body.alt .pageWrapper {position:fixed; top:0; left: -200px; right: 200px; margin: 0 auto;}
+body.alt .popupWrapper{ display: block;}
+body.alt .popupOrder{ position: fixed; width: 400px; right: 50%; top: 180px; margin-right: -550px; color: #fff; z-index:2; }
+body.alt .popupSelect{ background: #ccc; width: 700px; position: relative; z-index:2; }
+body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0, 0, .4); position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index:1;}
