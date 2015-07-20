@@ -24,10 +24,12 @@ var wizard = {
 					var _this = $( this ), prt = _this.parents( _t.prts ), sib = prt.siblings( _t.prts ), b = $('.body', prt), bsib = $('.body', sib);
 					if( prt.hasClass('selected') ){
 						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
+						bsib.slideUp( _t.speed, _t.easing );
 						prt.removeClass('selected');
 						sib.removeClass('selected');
 					}else{
 						b.slideDown( _t.speed, _t.easing, function(){ _t.clicklable = true; });
+						bsib.slideUp( _t.speed, _t.easing );
 						prt.addClass('selected');
 						sib.removeClass('selected');
 					}
