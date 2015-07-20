@@ -13,6 +13,10 @@ var wizard = {
 	accordionBtn: '.accordionBtn',
 	typeSelectionBtn: '.type ul li a',
 	typeSelectionBackBtn: '.typeSelectionBtn',
+	customizeBtn: '.customize > ul > li > a',
+	multiSelectBtn: '.multiSelect li > a',
+	singleSelectBtn: '.singleSelect li > a',
+	firstPage: 'firstPage',
 	prts: '.row',
 	easing: 'easeInOutExpo',
 	speed: 333,
@@ -20,7 +24,7 @@ var wizard = {
 	typeCls: 'detail',
 	clicklable: true,
 	init: function(){
-		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn );
+		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
 				if( _t.clicklable ){
@@ -42,11 +46,15 @@ var wizard = {
 		
 		if( typeSelectionBtn.length > 0 )
 			typeSelectionBtn.bind('click', function(){
-				var _this = $( this ), txt = $('span', _this).text(), prt = _this.parent('li'), sib = prt.siblings('li'), prts = prt.parents( _t.prts ), backBtn = $(_t.typeSelectionBackBtn + ' small', prts);
+				var _this = $( this ), txt = $('span', _this).eq( 0 ).text(), prt = _this.parent('li'), sib = prt.siblings('li'), prts = prt.parents( _t.prts ), backBtn = $(_t.typeSelectionBackBtn + ' small', prts);
 				sib.removeClass( _t.cls );
 				prt.addClass( _t.cls );
 				prts.addClass( _t.typeCls );
 				backBtn.html( txt );
+				$('.' + _t.firstPage ).removeClass( _t.firstPage );
+				
+				if( !$(_t.customizeBtn, prts).eq( 0 ).parent('li').hasClass( _t.cls ) )
+					$(_t.customizeBtn, prts).eq( 0 ).click();
 			});
 		
 		if( typeSelectionBackBtn.length > 0 )
@@ -54,7 +62,46 @@ var wizard = {
 				var _this = $( this ), prts = _this.parents( _t.prts );
 				prts.removeClass( _t.typeCls );
 				$(_t.typeSelectionBtn, prts).parents('li').removeClass( _t.cls );
-			});		
+			});
+		
+		
+		if( customizeBtn.length > 0 )
+			customizeBtn.bind('click', function(){
+				if( _t.clicklable ){
+					_t.clicklable = false;
+					var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
+					if( prt.hasClass( _t.cls ) ){
+						b.slideUp( _t.speed, _t.easing, function(){ _t.clicklable = true; });
+						bsib.slideUp( _t.speed, _t.easing );
+						prt.removeClass( _t.cls );
+						sib.removeClass( _t.cls );
+					}else{
+						b.slideDown( _t.speed, _t.easing, function(){ _t.clicklable = true; });
+						bsib.slideUp( _t.speed, _t.easing );
+						prt.addClass( _t.cls );
+						sib.removeClass( _t.cls );
+					}
+				}	
+			});	
+		
+		if( multiSelectBtn.length > 0 )
+			multiSelectBtn.bind('click', function(){
+				var _this = $( this ), prt = _this.parent('li');
+				prt.toggleClass( _t.cls );
+			}); 
+		
+		if( singleSelectBtn.length > 0 )
+			singleSelectBtn.bind('click', function(){
+				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li');
+				if( prt.hasClass( _t.cls ) ){
+					sib.removeClass( _t.cls );
+					prt.removeClass( _t.cls );
+				}else{
+					sib.removeClass( _t.cls );
+					prt.addClass( _t.cls );
+				}
+			}); 	
+					
 	}
 	
 };
