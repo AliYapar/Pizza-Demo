@@ -194,7 +194,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
  /**/
 .popupSelect .customize ul li ul li i.check2 {border-radius:100%; padding:0; width:26px; height:26px; display:none;}
 .popupSelect .customize ul li ul li.selected i.check2 {background:#000; width:26px; height:26px; border:2px solid #000; margin:20px 5px 20px 0; display:inline-block;}
-.popupSelect .customize ul li ul li.selected i.check2 span {color:#fff; font-size:16px; font-family:'usc-bold'; position:absolute; top:4px; left:4px;}
+.popupSelect .customize ul li ul li.selected i.check2 span {color:#fff; font-size:16px; font-family:'usc-bold'; position:absolute; top:5px; left:4px;}
 
 /**/ 
 
