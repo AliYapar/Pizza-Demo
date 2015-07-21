@@ -27,11 +27,20 @@ var wizard = {
 		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
 		ID.removeClass('success');
 		customizeBtn.addClass('disabled');
+		_t.control();
 	},
 	enabled: function( ID ){
 		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
 		ID.addClass('success');
 		customizeBtn.removeClass('disabled');
+		_t.control();
+	},
+	control: function(){
+		var _t = this;
+		if( $('.firstItem').hasClass('success') &&  $('.secondItem').hasClass('success') )
+			$('.popupBasketBtn').addClass('active');
+		else
+			$('.popupBasketBtn').removeClass('active');
 	},
 	reset: function( ID ){
 		var _t = this;
@@ -90,6 +99,7 @@ var wizard = {
 				var _this = $( this ), prts = _this.parents( _t.prts );
 				prts.removeClass( _t.typeCls );
 				$(_t.typeSelectionBtn, prts).parents('li').removeClass( _t.cls );
+				//_t.disabled( prts );	
 			});
 		
 		
@@ -115,8 +125,18 @@ var wizard = {
 		
 		if( multiSelectBtn.length > 0 )
 			multiSelectBtn.bind('click', function(){
-				var _this = $( this ), prt = _this.parent('li');
+				var _this = $( this ), prt = _this.parent('li'), prts = prt.parents( _t.prts );
 				prt.toggleClass( _t.cls );
+				
+				if( prts.hasClass('drinkItem') || prts.hasClass('otherProductsItem') ){
+					console.log('sdasdas');
+					setTimeout(function(){
+						if( $('.multiSelect > li.selected', prts).length > 0 )
+							_t.enabled( prts );
+						else
+							_t.disabled( prts );		
+					}, 10);
+				}
 			}); 
 		
 		if( singleSelectBtn.length > 0 )
