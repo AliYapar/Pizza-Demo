@@ -22,6 +22,8 @@ var wizard = {
 	speed: 333,
 	cls: 'selected',
 	typeCls: 'detail',
+	basketBtn: '.popupBasketBtn',
+	alertCloseBtn: '.alertClose a',
 	clicklable: true,
 	disabled: function( ID ){ 
 		var _t = this, customizeBtn = $(_t.customizeBtn, ID);
@@ -57,7 +59,7 @@ var wizard = {
 		$('[rel="malzemeDegisikligi"] .sub li', ID).eq( 8 ).addClass( _t.cls );
 	},
 	init: function(){
-		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
+		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn ), basketBtn = $( _t.basketBtn ), alertCloseBtn = $( _t.alertCloseBtn );
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
 				if( $('.' + _t.firstPage).length 	> 0 ) return false;	
@@ -169,12 +171,41 @@ var wizard = {
 					
 				}
 			});
+			
+		if( basketBtn.length > 0 )
+			basketBtn.bind('click', function(){
+				var _this = $( this );
+				if( !_this.hasClass('active') )
+					cssClass({ 'ID': 'body', 'delay': 100, 'type': 'add', 'cls':['alertReady', 'alertAnimate'] });
+					
+			});
+			
+		if( alertCloseBtn.length > 0 )
+			alertCloseBtn.bind('click', function(){
+				cssClass({ 'ID': 'body', 'delay': 444, 'type': 'remove', 'cls':['alertAnimate', 'alertReady'] });
+			});		
 					
 	}
 	
 };
 
 wizard.init();
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////// CSS CLASS
+function cssClass( o, callback ){
+	var ID = $( o['ID'] ), k = o['delay'], type = o['type'], cls;
+	if( ID.length > 0 ){
+		if( type == 'add' ){
+			cls = o['cls'] || ['ready', 'animate'];
+			ID.addClass( cls[ 0 ] ).delay( k ).queue('fx', function(){ $( this ).dequeue().addClass( cls[ 1 ] ); if( callback != undefined ) callback(); });
+		}else{
+			cls = o['cls'] || ['animate', 'ready'];
+			ID.removeClass( cls[ 0 ] ).delay( k ).queue('fx', function(){ $( this ).dequeue().removeClass( cls[ 1 ] ); if( callback != undefined ) callback(); });
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var bdy = $('body'), popup = $('.popupSelect');
 $( window ).resize(function(){
