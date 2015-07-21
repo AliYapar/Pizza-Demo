@@ -165,6 +165,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .customize > ul > li.selected {border-bottom:1px solid #aaa;}
 .popupSelect .customize ul li a span {font-size:16px;}
 .popupSelect .customize > ul > li > a:before {content:''; background: url(../images/sprite.png) no-repeat -72px -23px; width:11px; height:7px; float:left; position: absolute; top: 17px; left: 10px; display:block;}
+.popupSelect .customize > ul > li.selected > a:before {content:''; background: url(../images/sprite.png) no-repeat -83px -10px; width:11px; height:11px; float:left; position: absolute; top: 14px; left: 10px; display:block;}
 .popupSelect .customize ul li ul li {width:100%; max-width:105px; border-right:1px solid #aaa; float:left; text-align:center; color:#888; font-size:13px;}
 .popupSelect .customize ul li ul li a {width:100%; text-align:center;}
 .popupSelect .customize ul li ul li a:hover {background:rgba(255,255,255,0.8);}
@@ -181,7 +182,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .customize ul li ul li i.check {border-radius:100%; border:2px solid #555; background:#fff; padding:0; width:26px; height:26px; display:inline-block; margin:20px 0;}
 .popupSelect .customize ul li ul li.selected i.check {background:#888; width:26px; height:26px; border:2px solid #888; margin: 20px 0;}
 .popupSelect .customize ul li ul li.selected i.check:after {content:''; background: url(../images/sprite.png) no-repeat 0 -13px; width:16px; height:10px; position: relative;
-  top: 5px; left: 4px; display:block;}
+  top: 6px; left: 4px; display:block;}
 .popupSelect .customize ul li ul li span {text-align:center; display:block; font-family:'helvetica'; color:#888; font-size:13px; min-height:30px; line-height: 15px;}
 .popupSelect .success  .accordionBtn i {background:#fff; width:26px; height:26px; text-indent: -9999px; display: inline-block; float:left; border-radius: 100%; margin:-3px 13px; padding: 0;}
 .popupSelect .success  .accordionBtn i:after {content:''; background: url(../images/sprite.png) no-repeat 0 0; width:16px; height:10px; position: absolute;
