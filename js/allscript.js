@@ -86,7 +86,7 @@ var wizard = {
 		
 		if( customizeBtn.length > 0 )
 			customizeBtn.bind('click', function(){
-				var _this = $( this ), prt = _this.parents('li'), sib = prt.siblings('li'), b = $('.sub', prt), bsib = $('.sub', sib);
+				var _this = $( this ), prt = _this.parent('li'), sib = prt.siblings('li'), b = $('> .sub', prt), bsib = $('> .sub', sib);
 				if( _this.hasClass('disabled') ) return false;	
 				if( _t.clicklable ){
 					//_t.clicklable = false;
@@ -100,7 +100,7 @@ var wizard = {
 						bsib.slideUp( _t.speed, _t.easing );
 						prt.addClass( _t.cls );
 						sib.removeClass( _t.cls );
-					}
+					}	
 				}	
 			});	
 		

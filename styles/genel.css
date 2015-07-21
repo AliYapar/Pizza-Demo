@@ -160,15 +160,19 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .type .prdPrice i:after {content: "t"; font-family: "tl"; font-size: 12px; padding:0 3px; font-weight: normal; position: relative; top: 1px;}
 
 .popupSelect .customize {padding:0px 20px;}
+.popupSelect .customize ul{padding:0;margin:0;width:100%;}
 .popupSelect .customize ul li {position:relative; padding:0;}
 .popupSelect .customize > ul > li > a {width:100%; border-bottom:1px solid #aaa; position:relative; padding:13px 0 11px 48px;}
 .popupSelect .customize > ul > li.selected {border-bottom:1px solid #aaa;}
 .popupSelect .customize ul li a span {font-size:16px;}
 .popupSelect .customize > ul > li > a:before {content:''; background: url(../images/sprite.png) no-repeat -72px -23px; width:11px; height:7px; float:left; position: absolute; top: 17px; left: 10px; display:block;}
-.popupSelect .customize ul li ul li {width:100%; max-width:105px; border-right:1px solid #aaa; float:left; text-align:center; color:#888; font-size:13px;}
+
+.customize .sub{ width:100%; }
+.popupSelect .customize ul li ul li {width:100%; max-width:105px; border-right:1px solid #aaa; display:block; float:left; text-align:center; color:#888; font-size:13px;}
 .popupSelect .customize ul li ul li a {width:100%; text-align:center;}
 .popupSelect .customize ul li ul li a:hover {background:rgba(255,255,255,0.8);}
 .popupSelect .customize ul li ul li a img {padding:20px;}
+
 /**/
 .popupSelect .customize ul li ul.multiSelect li {border-top: 1px solid #aaa; margin-top: -1px;}
 .popupSelect .customize ul li ul.multiSelect li a img {padding:0;}
