@@ -39,7 +39,8 @@ var wizard = {
 	},
 	control: function(){
 		var _t = this;
-		if( $('.firstItem').hasClass('success') &&  $('.secondItem').hasClass('success') )
+		
+		if( $('.pizzaSelection').length == $('.pizzaSelection.success').length )
 			$('.popupBasketBtn').addClass('active');
 		else
 			$('.popupBasketBtn').removeClass('active');
