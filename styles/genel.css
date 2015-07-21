@@ -137,7 +137,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 /* */
 
 .popupSelect .header {width:100%; padding:0 15px; display:inline-block; border-bottom:1px solid #bdbdbd;}
-.popupSelect  .selected .header {border-color:transparent;}
+.popupSelect  .selected .header {border-color:transparent; background: rgba(255,255,255,0.3);}
 .popupSelect  .body {background: rgba(0,0,0, 0.1); box-shadow: inset 0px 11px 8px -10px #999, inset 0px -11px 8px -10px #999; min-height:400px; padding:20px 0; }
 .popupSelect a  {display:inline-block; float:left;}
 .popupSelect a  span {font-size:21px;}
@@ -169,12 +169,30 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .customize ul li ul li a {width:100%; text-align:center;}
 .popupSelect .customize ul li ul li a:hover {background:rgba(255,255,255,0.8);}
 .popupSelect .customize ul li ul li a img {padding:20px;}
+/**/
+.popupSelect .customize ul li ul.multiSelect li {border-top: 1px solid #aaa; margin-top: -1px;}
 .popupSelect .customize ul li ul.multiSelect li a img {padding:0;}
-.popupSelect .customize ul li ul li i.check {border-radius:100%; border:2px solid #555; background:#fff; padding:0; width:20px; height:20px; display:inline-block; margin:20px 0;}
-.popupSelect .customize ul li ul li.selected i.check {background:#888; width:26px; height:26px; border:2px solid #888; margin: 17px 0;}
+.popupSelect .customize ul li ul.multiSelect li i.check:after {content:''; background: url(../images/sprite.png) no-repeat 0 -74px; width:12px; height:12px; position: relative;
+  top: 5px; left: 5px; display:block;}
+.popupSelect .customize ul li ul.multiSelect li.selected i.check {background: #c63037; width: 26px; height: 26px; border: 2px solid #c63037; margin: 20px 0;}
+.popupSelect .customize ul li ul.multiSelect li.selected i.check:after {content:''; background: url(../images/sprite.png) no-repeat 0 -57px; width:10px; height:10px; position: relative;
+  top: 6px; left: 6px; display:block;}
+.popupSelect .customize ul li ul.multiSelect li.selected a {background: rgba(255,255,255,0.8);}
+.popupSelect .customize ul li ul li i.check {border-radius:100%; border:2px solid #555; background:#fff; padding:0; width:26px; height:26px; display:inline-block; margin:20px 0;}
+.popupSelect .customize ul li ul li.selected i.check {background:#888; width:26px; height:26px; border:2px solid #888; margin: 20px 0;}
 .popupSelect .customize ul li ul li.selected i.check:after {content:''; background: url(../images/sprite.png) no-repeat 0 -13px; width:16px; height:10px; position: relative;
   top: 5px; left: 4px; display:block;}
-.popupSelect .customize ul li ul li span {text-align:center; display:block; font-family:'helvetica'; color:#888; font-size:13px;}
+.popupSelect .customize ul li ul li span {text-align:center; display:block; font-family:'helvetica'; color:#888; font-size:13px; min-height:30px; line-height: 15px;}
 .popupSelect .success  .accordionBtn i {background:#fff; width:26px; height:26px; text-indent: -9999px; display: inline-block; float:left; border-radius: 100%; margin:-3px 13px; padding: 0;}
 .popupSelect .success  .accordionBtn i:after {content:''; background: url(../images/sprite.png) no-repeat 0 0; width:16px; height:10px; position: absolute;
   top: 8px; left: 6px; display:block;}
+ /**/
+.popupSelect .customize ul li ul li i.check2 {border-radius:100%; padding:0; width:26px; height:26px; display:none;}
+.popupSelect .customize ul li ul li.selected i.check2 {background:#000; width:26px; height:26px; border:2px solid #000; margin:20px 5px 20px 0; display:inline-block;}
+.popupSelect .customize ul li ul li.selected i.check2 span {color:#fff; font-size:16px; font-family:'usc-bold'; position:absolute; top:4px; left:4px;}
+
+/**/ 
+
+.drinkItem .customize > ul > li > a {display:none;}
+.drinkItem  .customize > ul > li .sub {display:block;}
+.drinkItem  .customize ul li ul li {border-top:0 !important;}
