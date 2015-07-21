@@ -42,6 +42,7 @@ var wizard = {
 		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
 		if( accordionBtn.length > 0 )
 			accordionBtn.bind('click', function(){
+				if( $('.' + _t.firstPage).length 	> 0 ) return false;	
 				if( _t.clicklable ){
 					//_t.clicklable = false;
 					var _this = $( this ), prt = _this.parents( _t.prts ), sib = prt.siblings( _t.prts ), b = $('.body', prt), bsib = $('.body', sib);
@@ -120,9 +121,11 @@ var wizard = {
 					prt.addClass( _t.cls );
 					
 					_t.enabled( prts );
-					var e = _this.parents('.sub').parent('li').next('li').find('> a');
-					if( e.length > 0 )
-						e.click();
+					setTimeout(function(){
+						var e = _this.parents('.sub').parent('li').next('li').find('> a');
+						if( e.length > 0 )
+							e.click();
+					}, 444);
 				}else{
 					
 					if( prt.hasClass( _t.cls ) ){
