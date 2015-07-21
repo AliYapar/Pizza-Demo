@@ -110,8 +110,6 @@ body {background:#1b1b1a;}
 /*/////////////////////////////////////////      POPUP      /////////////////////////////////////////*/
 
 .detailPopup {}
-/*.popupSelect {width:100%; max-width:700px;}*/
-/*.popupOrder img {float: right; clear: both;}*/
 .popupBasketBtn a {width:400px; height:70px; display:inline-block; background: url(../images/add-basket.jpg) no-repeat 0 0; }
 .popupBasketBtn.active a {background: url(../images/add-basket.jpg) no-repeat 0 -70px;}
 
@@ -119,6 +117,10 @@ body {background:#1b1b1a;}
 .popupClose {position:absolute; right: -15px; top: -15px; z-index:2;}
 .popupClose a {padding:10px; border-radius:100%; background:#ffbf00; display:block;}
 .popupClose i {background-position: 0px -28px; width: 13px;  height: 13px; display:block;}
+
+.alertClose {position:absolute; right: -15px; top: -15px; z-index:2;}
+.alertClose a {padding:10px; border-radius:100%; background:#ffbf00; display:block;}
+.alertClose i {background-position: 0px -28px; width: 13px;  height: 13px; display:block;}
 
 
 /**/
@@ -199,4 +201,10 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .drinkItem .customize > ul > li > a , .otherProductsItem .customize > ul > li > a {display:none;}
 .drinkItem  .customize > ul > li .sub, .otherProductsItem  .customize > ul > li .sub  {display:block;}
 .drinkItem  .customize ul li ul li, .otherProductsItem .customize ul li ul li {border-top:0 !important;}
+
+/* Alert Popup */
+
+.alertPopup {position:absolute; left:0; right:0; top:250px; margin:0 auto;  max-width: 630px; background:#fff; z-index:3;}
+.alertPopup .alertContent {padding:20px; width:100%; display:inline-block; text-align:center;}
+.alertPopup .alertContent span {font-family:'usc-bold'; font-size:18px;}
 
