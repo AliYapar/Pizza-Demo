@@ -137,10 +137,12 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 /* */
 
 .popupSelect .header {width:100%; padding:0 15px; display:inline-block; border-bottom:1px solid #bdbdbd;}
+.popupSelect  .selected .header {border-color:transparent;}
+.popupSelect  .body {background: rgba(0,0,0, 0.1); box-shadow: inset 0px 11px 8px -10px #999, inset 0px -11px 8px -10px #999; min-height:400px; padding:20px 0; }
 .popupSelect a  {display:inline-block; float:left;}
 .popupSelect a  span {font-size:21px;}
 .popupSelect a  i {color:#9a9b97; font-size:14px; padding: 0px 28px 0 18px; position: relative; top: -2px;}
-.popupSelect .header a {padding:20px 10px 18px 0;}
+.popupSelect .header a {padding:27px 10px 22px 0;}
 .popupSelect a.typeSelectionBtn  span {color:#989898; float:left;}
 .popupSelect a.typeSelectionBtn  span:after {content:''; background: url(../images/sprite.png) no-repeat -32px -23px; width:10px; height:7px; float:right; position: relative; top: 5px; left: 10px; display:block;}
 .popupSelect a.typeSelectionBtn  small {font-size: 21px; color: #989898;}
@@ -157,7 +159,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .type .prdPrice i {font-family:'usc-bold'; color:#000; padding:0; font-size: 20px;}
 .popupSelect .type .prdPrice i:after {content: "t"; font-family: "tl"; font-size: 12px; padding:0 3px; font-weight: normal; position: relative; top: 1px;}
 
-.popupSelect .customize {background:rgba(0,0,0, 0.1); box-shadow: inset 0px 11px 8px -10px #999, inset 0px -11px 8px -10px #999; padding:10px 20px;}
+.popupSelect .customize {padding:0px 20px;}
 .popupSelect .customize ul li {position:relative; padding:0;}
 .popupSelect .customize > ul > li > a {width:100%; border-bottom:1px solid #aaa; position:relative; padding:13px 0 11px 48px;}
 .popupSelect .customize > ul > li.selected {border-bottom:1px solid #aaa;}
@@ -165,6 +167,14 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .popupSelect .customize > ul > li > a:before {content:''; background: url(../images/sprite.png) no-repeat -72px -23px; width:11px; height:7px; float:left; position: absolute; top: 17px; left: 10px; display:block;}
 .popupSelect .customize ul li ul li {width:100%; max-width:105px; border-right:1px solid #aaa; float:left; text-align:center; color:#888; font-size:13px;}
 .popupSelect .customize ul li ul li a {width:100%; text-align:center;}
+.popupSelect .customize ul li ul li a:hover {background:rgba(255,255,255,0.8);}
 .popupSelect .customize ul li ul li a img {padding:20px;}
-.popupSelect .customize ul li ul li i.check {border-radius:100%; border:2px solid #555; background:#fff; padding:0; width:20px; height:20px; display:inline-block;}
-.popupSelect .customize ul li ul li span {text-align:center; display:block; font-family:'helvetica';}
+.popupSelect .customize ul li ul.multiSelect li a img {padding:0;}
+.popupSelect .customize ul li ul li i.check {border-radius:100%; border:2px solid #555; background:#fff; padding:0; width:20px; height:20px; display:inline-block; margin:20px 0;}
+.popupSelect .customize ul li ul li.selected i.check {background:#888; width:26px; height:26px; border:2px solid #888; margin: 17px 0;}
+.popupSelect .customize ul li ul li.selected i.check:after {content:''; background: url(../images/sprite.png) no-repeat 0 -13px; width:16px; height:10px; position: relative;
+  top: 5px; left: 4px; display:block;}
+.popupSelect .customize ul li ul li span {text-align:center; display:block; font-family:'helvetica'; color:#888; font-size:13px;}
+.popupSelect .success  .accordionBtn i {background:#fff; width:26px; height:26px; text-indent: -9999px; display: inline-block; float:left; border-radius: 100%; margin:-3px 13px; padding: 0;}
+.popupSelect .success  .accordionBtn i:after {content:''; background: url(../images/sprite.png) no-repeat 0 0; width:16px; height:10px; position: absolute;
+  top: 8px; left: 6px; display:block;}
