@@ -37,6 +37,15 @@ var wizard = {
 		var _t = this;
 		$(_t.singleSelectBtn, ID).parent('li').removeClass( _t.cls ).siblings('li').removeClass( _t.cls );
 		$(_t.multiSelectBtn, ID).parent('li').removeClass( _t.cls ).eq( 0 ).addClass( _t.cls );
+		
+		/* */
+		$('[rel="hamurTipi"] .sub li', ID).removeClass( _t.cls );
+		$('[rel="kenarTipi"] .sub li', ID).removeClass( _t.cls ).eq( 0 ).addClass( _t.cls );
+		$('[rel="malzemeDegisikligi"] .sub li', ID).removeClass( _t.cls ).eq( 1 ).addClass( _t.cls );
+		$('[rel="malzemeDegisikligi"] .sub li', ID).eq( 3 ).addClass( _t.cls );
+		$('[rel="malzemeDegisikligi"] .sub li', ID).eq( 5 ).addClass( _t.cls );
+		$('[rel="malzemeDegisikligi"] .sub li', ID).eq( 6 ).addClass( _t.cls );
+		$('[rel="malzemeDegisikligi"] .sub li', ID).eq( 8 ).addClass( _t.cls );
 	},
 	init: function(){
 		var _t = this, accordionBtn = $( _t.accordionBtn ), typeSelectionBtn = $( _t.typeSelectionBtn ), typeSelectionBackBtn = $( _t.typeSelectionBackBtn ), customizeBtn = $( _t.customizeBtn ), multiSelectBtn = $( _t.multiSelectBtn ), singleSelectBtn = $( _t.singleSelectBtn );
