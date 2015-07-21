@@ -138,7 +138,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 
 .popupSelect .header {width:100%; padding:0 15px; display:inline-block; border-bottom:1px solid #bdbdbd;}
 .popupSelect  .selected .header {border-color:transparent; background: rgba(255,255,255,0.3);}
-.popupSelect  .body {background: rgba(0,0,0, 0.1); box-shadow: inset 0px 11px 8px -10px #999, inset 0px -11px 8px -10px #999; min-height:400px; padding:20px 0; }
+.popupSelect  .body {background: rgba(0,0,0, 0.1); box-shadow: inset 0px 11px 8px -10px #999, inset 0px -11px 8px -10px #999; padding:20px 0; }
 .popupSelect a  {display:inline-block; float:left;}
 .popupSelect a  span {font-size:21px;}
 .popupSelect a  i {color:#9a9b97; font-size:14px; padding: 0px 28px 0 18px; position: relative; top: -2px;}
@@ -193,6 +193,7 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 
 /**/ 
 
-.drinkItem .customize > ul > li > a {display:none;}
-.drinkItem  .customize > ul > li .sub {display:block;}
-.drinkItem  .customize ul li ul li {border-top:0 !important;}
+.drinkItem .customize > ul > li > a , .otherProductsItem .customize > ul > li > a {display:none;}
+.drinkItem  .customize > ul > li .sub, .otherProductsItem  .customize > ul > li .sub  {display:block;}
+.drinkItem  .customize ul li ul li, .otherProductsItem .customize ul li ul li {border-top:0 !important;}
+
