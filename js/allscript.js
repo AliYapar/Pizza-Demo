@@ -99,7 +99,8 @@ var wizard = {
 				var _this = $( this ), prts = _this.parents( _t.prts );
 				prts.removeClass( _t.typeCls );
 				$(_t.typeSelectionBtn, prts).parents('li').removeClass( _t.cls );
-				//_t.disabled( prts );	
+				prts.removeClass('success');
+				_t.control();
 			});
 		
 		
