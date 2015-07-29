@@ -204,11 +204,12 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 
 /*/////////////////////////////////////////      ORDER PROPERTY      /////////////////////////////////////////*/
 
-.popupOrder .priceCalculation {padding:40px 30px 30px 30px; display:inline-block; width:100%;}
+.popupOrder .priceCalculation {padding:35px 30px 10px 30px; display:inline-block; width:100%;}
 
 /* Order Price */
 
 .popupOrder .orderPrice {float:left;}
+.popupOrder .orderPrice:before {content: "t"; font-family: "tl"; font-size: 37px; font-weight: normal; color:#fff; margin-right:3px;}
 .popupOrder .orderPrice span {color:#fff;}
 .popupOrder .orderPrice span.prcFirst {font-size:75px;}
 .popupOrder .orderPrice span.prcLast {font-size: 45px; vertical-align: top;}
@@ -218,9 +219,9 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 
 .popupOrder .orderPiece {float:right;}
 .popupOrder .orderPiece .piece  {display:inline-block;}
-.popupOrder .orderPiece .piece small {font-size: 20px; color:#fff; vertical-align: top; padding:5px 10px 0 5px; display:inline-block;}
+.popupOrder .orderPiece .piece small {font-size: 15px; color:#fff; vertical-align: top; padding:5px 10px 0 1px; display:inline-block;}
 .popupOrder .orderPiece .piece span {font-size:75px; color:#fff;}
-.popupOrder .orderPiece .addPiece {border:2px solid #a4a3a3; border-radius:20px; display:inline-block; float:right; overflow:hidden;}
+.popupOrder .orderPiece .addPiece {border:2px solid #a4a3a3; border-radius:20px; position:relative; top:-4px; float:right; overflow:hidden; display:inline-block;}
 .popupOrder .orderPiece .addPiece a {display:block; width:33px; height:33px;}
 .popupOrder .orderPiece .addPiece a:hover {background-color:#a4a3a3;}
 .popupOrder .orderPiece .addPiece a.plusPiece {border-bottom:2px solid #a4a3a3;}
@@ -230,9 +231,21 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 
 /* Product Materials */
 
-.popupOrder .prdMaterials {padding:0 30px;}
-.popupOrder .prdMaterials h4 {color:#fff; font-size:18px; display:inline-block;}
+.popupOrder .prdMaterials {padding:0 30px; height:66px; overflow:hidden;}
+.popupOrder .prdMaterials h4 {color:#fff; font-size:18px; display:inline-block; margin-right:5px;}
 .popupOrder .prdMaterials h5 {color:#d4a26f; font-size:18px; display:inline-block;}
+.popupOrder .prdMaterials .metarialList {margin-top:3px;}
+.popupOrder .prdMaterials .metarialList span {color:#999; font-size:14px; font-family: 'helvetica-light'; line-height: 15px; margin-right:3px; display:inline-block;}
+.popupOrder .prdMaterials .metarialList span.removed {color:#666; text-decoration:line-through;}
+.popupOrder .prdMaterials .metarialList span:after {content:',';}
+.popupOrder .prdMaterials .metarialList span:last-child:after{display:none;}
+
+/* Product Slider */
+
+.popupOrder .prdSlider {width:100%; display:inline-block;}
+.popupOrder .prdSlider ul {position:relative; padding:0 20px;}
+.popupOrder .prdSlider ul li {float: left; position: relative;}
+.popupOrder .prdSlider ul li img {width:100%;}
 
 /* Alert Popup */
 
