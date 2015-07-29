@@ -133,7 +133,7 @@ body.alt .detailPopup { position: display: block;  position: relative; width: 11
 
 body.alt .pageWrapper {position:fixed; top:0; left: -200px; right: 200px; margin: 0 auto;}
 body.alt .popupWrapper{ display: block;}
-body.alt .popupOrder{ position: fixed; width: 400px; right: 50%; top: 180px; margin-right: -550px; color: #fff; z-index:2; }
+body.alt .popupOrder{ position: fixed; width: 400px; right: 50%; top: 180px; margin-right: -550px; color: #fff; z-index:2; background: url(../images/prdSelectBg.jpg) center top no-repeat}
 body.alt .popupSelect{ background: url(../images/popup-bg.jpg) no-repeat 0 0; width: 700px; position: relative; z-index:2; }
 body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0, 0, .4); position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index:1;}
 
@@ -201,6 +201,38 @@ body.alt .popupWrapper:after{ content: ""; display: block; background: rgba(0, 0
 .drinkItem .customize > ul > li > a , .otherProductsItem .customize > ul > li > a {display:none;}
 .drinkItem  .customize > ul > li .sub, .otherProductsItem  .customize > ul > li .sub  {display:block;}
 .drinkItem  .customize ul li ul li, .otherProductsItem .customize ul li ul li {border-top:0 !important;}
+
+/*/////////////////////////////////////////      ORDER PROPERTY      /////////////////////////////////////////*/
+
+.popupOrder .priceCalculation {padding:40px 30px 30px 30px; display:inline-block; width:100%;}
+
+/* Order Price */
+
+.popupOrder .orderPrice {float:left;}
+.popupOrder .orderPrice span {color:#fff;}
+.popupOrder .orderPrice span.prcFirst {font-size:75px;}
+.popupOrder .orderPrice span.prcLast {font-size: 45px; vertical-align: top;}
+.popupOrder .orderPrice span.currency {display:none;}
+
+/* Order Piece */
+
+.popupOrder .orderPiece {float:right;}
+.popupOrder .orderPiece .piece  {display:inline-block;}
+.popupOrder .orderPiece .piece small {font-size: 20px; color:#fff; vertical-align: top; padding:5px 10px 0 5px; display:inline-block;}
+.popupOrder .orderPiece .piece span {font-size:75px; color:#fff;}
+.popupOrder .orderPiece .addPiece {border:2px solid #a4a3a3; border-radius:20px; display:inline-block; float:right; overflow:hidden;}
+.popupOrder .orderPiece .addPiece a {display:block; width:33px; height:33px;}
+.popupOrder .orderPiece .addPiece a:hover {background-color:#a4a3a3;}
+.popupOrder .orderPiece .addPiece a.plusPiece {border-bottom:2px solid #a4a3a3;}
+.popupOrder .orderPiece .addPiece a i {width:17px; height:17px; position: relative; left: 8px; top: 8px;  display:block;}
+.popupOrder .orderPiece .addPiece a.plusPiece i {background-position:0 -107px;}
+.popupOrder .orderPiece .addPiece a.minusPiece i {background-position:0 -125px;}
+
+/* Product Materials */
+
+.popupOrder .prdMaterials {padding:0 30px;}
+.popupOrder .prdMaterials h4 {color:#fff; font-size:18px; display:inline-block;}
+.popupOrder .prdMaterials h5 {color:#d4a26f; font-size:18px; display:inline-block;}
 
 /* Alert Popup */
 
